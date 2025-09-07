@@ -1,0 +1,47 @@
+.app-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+   
+  }
+  
+  .main-layout {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  .animated-bg {
+    background: linear-gradient(270deg, #02101B, #08397B, #1E2A47);
+    background-size: 600% 600%;
+    animation: GradientShift 12s ease infinite;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .animated-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 1.5px);
+    background-size: 24px 24px;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  @keyframes GradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+
+
+  /* Barcha ant modallar uchun width 75% — kalkulyatordan tashqari */

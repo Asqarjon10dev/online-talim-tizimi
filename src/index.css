@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  
+}
+
+
+body {
+  max-width: 1880px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+/* ...existing code... */
+
+@keyframes floatY {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+@keyframes floatX {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-9px);
+  }
+}
+
+.animate-floatY {
+  animation: floatY 2s ease-in-out infinite;
+}
+
+.animate-floatX {
+  animation: floatX 2s ease-in-out infinite;
+}
