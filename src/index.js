@@ -1,11 +1,12 @@
+// src/index.jsx
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 
-// redux va RTK Query uchun
+// redux
 import { Provider } from "react-redux";
-import { store } from "./context/store.js";
+import { store } from "./context/store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
