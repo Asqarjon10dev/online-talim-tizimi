@@ -121,25 +121,35 @@ export const courseApi = api.injectEndpoints({
     }),
 
     // CREATE (x-www-form-urlencoded)
+   
     createCourse: build.mutation({
       query: (p) => {
-        const form = new URLSearchParams();
-        form.append("name", s(p?.name));
-        form.append("teacher", s(p?.teacher));
-        form.append("description", s(p?.description));
-        form.append("category", s(p?.category));
-        form.append("level", s(p?.level));
-        form.append("duration", s(p?.duration));
-        form.append("price", String(Number(p?.price ?? 0)));
-        form.append("lessons", String(parseInt(p?.lessons, 10) || 0));
-        form.append("views", String(parseInt(p?.views, 10) || 0));
+        // Agar p FormData bo'lsa to'g'ridan-to'g'ri yuboramiz
+        let body = p instanceof FormData ? p : null;
 
-        // ixtiyoriy: bitta image URL
-        if (s(p?.image)) {
-          form.append("image", s(p.image));
+        if (!body) {
+          const fd = new FormData();
+          fd.append("name", (p?.name ?? "").trim());
+          fd.append("teacher", (p?.teacher ?? "").trim());
+          fd.append("description", (p?.description ?? "").trim());
+          fd.append("category", (p?.category ?? "").trim());
+          fd.append("level", (p?.level ?? "").trim());
+          fd.append("duration", (p?.duration ?? "").trim());
+          fd.append("price", String(Number(p?.price ?? 0)));
+          fd.append("lessons", String(parseInt(p?.lessons, 10) || 0));
+          fd.append("views", String(parseInt(p?.views, 10) || 0));
+
+          // ⚠️ Backend nomiga moslang:
+          // Bitta fayl bo'lsa:
+          if (p?.imageFile) fd.append("image", p.imageFile);
+          // Yoki ko'p fayl bo'lsa:
+          if (Array.isArray(p?.images)) {
+            p.images.forEach((f) => f && fd.append("images", f));
+          }
+          body = fd;
         }
 
-        return { url: "/create_course", method: "POST", body: form };
+        return { url: "/create_course", method: "POST", body }; // header qo'ymaymiz
       },
       invalidatesTags: [{ type: "Courses", id: "LIST" }],
     }),

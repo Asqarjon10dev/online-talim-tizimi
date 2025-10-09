@@ -82,7 +82,7 @@ export default function Footer() {
             <ul className="space-y-2 text-slate-300/90 font-medium text-sm  cursor-pointer">
               <li className="hover:text-white transition">Biz haqimizda</li>
               <li className="hover:text-white transition">Kurslar</li>
-              <li className="hover:text-white transition">O‘qituvchilar</li>
+              {/* <li className="hover:text-white transition">O‘qituvchilar</li> */}
               <li className="hover:text-white transition">FAQ</li>
             </ul>
           </div>

@@ -42,7 +42,7 @@ export default function AdminConsole() {
                 <div className="w-full rounded-2xl bg-slate-800/40 border border-white/10 p-1 flex flex-wrap items-center justify-between gap-2">
                     <NavBtn active={tab === "dashboard"} onClick={() => setTab("dashboard")} icon={FiMonitor} text="Dashboard" />
                     <NavBtn active={tab === "courses"} onClick={() => setTab("courses")} icon={FiBookOpen} text="Kurslar" />
-                    <NavBtn active={tab === "teachers"} onClick={() => setTab("teachers")} icon={FiShield} text="O‘qituvchilar" />
+                    {/* <NavBtn active={tab === "teachers"} onClick={() => setTab("teachers")} icon={FiShield} text="O‘qituvchilar" /> */}
                     <NavBtn active={tab === "students"} onClick={() => setTab("students")} icon={FiUsers} text="Talabalar" />
                 </div>
 
@@ -50,7 +50,7 @@ export default function AdminConsole() {
                 <div className="mt-6">
                     {tab === "dashboard" && <DashboardView />}
                     {tab === "courses" && <CoursesView />}
-                    {tab === "teachers" && <TeachersView />}
+                    {/* {tab === "teachers" && <TeachersView />} */}
                     {tab === "students" && <StudentsView />}
                 </div>
             </div>
@@ -63,7 +63,7 @@ function DashboardView() {
     const stats = [
         { label: "Faol Talabalar", value: 7 },
         { label: "Jami Kurslar", value: 6 },
-        { label: "Faol O‘qituvchilar", value: 5 },
+        // { label: "Faol O‘qituvchilar", value: 5 },
         { label: "Jami Darslar", value: 103 },
     ];
     const rows = [
@@ -97,7 +97,7 @@ function DashboardView() {
                                 <th className="py-3 pr-4">Talabalar</th>
                                 <th className="py-3 pr-4">Tugatilgan</th>
                                 <th className="py-3 pr-4">Reyting</th>
-                                <th className="py-3">O‘qituvchi</th>
+                                {/* <th className="py-3">O‘qituvchi</th> */}
                             </tr>
                         </thead>
                         <tbody>
@@ -232,73 +232,73 @@ function CoursesView() {
     );
 }
 
-/* ---------------------- Teachers ---------------------- */
-function TeachersView() {
-    const rows = [
-        { name: "Sardor Umarov", email: "sardor.teacher@example.com", course: "React va TypeScript Asoslari / Python Dasturlash Tili", students: 156, rating: 4.8, joined: "2023-09-15", status: "Faol" },
-        { name: "Bobur Rahimov", email: "bobur.teacher@example.com", course: "Ma'lumotlar Bazasi MySQL", students: 89, rating: 4.7, joined: "2023-11-20", status: "Faol" },
-        { name: "Malika Toshmatova", email: "malika.teacher@example.com", course: "UI/UX Dizayn Asoslari", students: 234, rating: 4.9, joined: "2023-08-10", status: "Faol" },
-        { name: "Dilshod Karimov", email: "dilshod.teacher@example.com", course: "Digital Marketing", students: 67, rating: 4.5, joined: "2024-01-12", status: "Faol" },
-        { name: "Rustam Narzullayev", email: "rustam.teacher@example.com", course: "Kiberxavfsizlik Asoslari", students: 45, rating: 4.8, joined: "2023-12-03", status: "Faol" },
-    ];
+// /* ---------------------- Teachers ---------------------- */
+// function TeachersView() {
+//     const rows = [
+//         { name: "Sardor Umarov", email: "sardor.teacher@example.com", course: "React va TypeScript Asoslari / Python Dasturlash Tili", students: 156, rating: 4.8, joined: "2023-09-15", status: "Faol" },
+//         { name: "Bobur Rahimov", email: "bobur.teacher@example.com", course: "Ma'lumotlar Bazasi MySQL", students: 89, rating: 4.7, joined: "2023-11-20", status: "Faol" },
+//         { name: "Malika Toshmatova", email: "malika.teacher@example.com", course: "UI/UX Dizayn Asoslari", students: 234, rating: 4.9, joined: "2023-08-10", status: "Faol" },
+//         { name: "Dilshod Karimov", email: "dilshod.teacher@example.com", course: "Digital Marketing", students: 67, rating: 4.5, joined: "2024-01-12", status: "Faol" },
+//         { name: "Rustam Narzullayev", email: "rustam.teacher@example.com", course: "Kiberxavfsizlik Asoslari", students: 45, rating: 4.8, joined: "2023-12-03", status: "Faol" },
+//     ];
 
-    return (
-        <>
-            {/* Search */}
-            <div className="mb-4">
-                <div className="relative max-w-md">
-                    <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
-                    <input
-                        placeholder="O‘qituvchilarni qidirish..."
-                        className="w-full pl-10 pr-3 py-2 rounded-xl bg-slate-900/40 border border-white/10 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                    />
-                </div>
-            </div>
+//     return (
+//         <>
+//             {/* Search */}
+//             <div className="mb-4">
+//                 <div className="relative max-w-md">
+//                     <FiSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+//                     <input
+//                         placeholder="O‘qituvchilarni qidirish..."
+//                         className="w-full pl-10 pr-3 py-2 rounded-xl bg-slate-900/40 border border-white/10 text-slate-200 placeholder:text-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+//                     />
+//                 </div>
+//             </div>
 
-            <Card>
-                <div className="text-slate-300 font-semibold mb-3">O‘qituvchilar Boshqaruvi</div>
-                <div className="overflow-x-auto">
-                    <table className="w-full text-left text-slate-300">
-                        <thead>
-                            <tr className="text-slate-400 text-sm border-b border-white/10">
-                                <th className="py-3 pr-4">O‘qituvchi</th>
-                                <th className="py-3 pr-4">Kurslari</th>
-                                <th className="py-3 pr-4">Talabalar</th>
-                                <th className="py-3 pr-4">Reyting</th>
-                                <th className="py-3 pr-4">Qo‘shilgan</th>
-                                <th className="py-3 pr-4">Status</th>
-                                <th className="py-3">Amallar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {rows.map((r, i) => (
-                                <tr key={r.email} className={`text-sm ${i !== rows.length - 1 ? "border-b border-white/5" : ""}`}>
-                                    <td className="py-3 pr-4">
-                                        <div className="text-white">{r.name}</div>
-                                        <div className="text-slate-400 text-xs">{r.email}</div>
-                                    </td>
-                                    <td className="py-3 pr-4 text-sky-300">{r.course}</td>
-                                    <td className="py-3 pr-4 text-cyan-300">{r.students}</td>
-                                    <td className="py-3 pr-4"><span className="inline-flex items-center gap-1 text-amber-300"><FiStar /> {r.rating}</span></td>
-                                    <td className="py-3 pr-4 text-slate-300">{r.joined}</td>
-                                    <td className="py-3 pr-4"><Badge text={r.status} color="emerald" /></td>
-                                    <td className="py-3"><RowActions /></td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-            </Card>
+//             <Card>
+//                 <div className="text-slate-300 font-semibold mb-3">O‘qituvchilar Boshqaruvi</div>
+//                 <div className="overflow-x-auto">
+//                     <table className="w-full text-left text-slate-300">
+//                         <thead>
+//                             <tr className="text-slate-400 text-sm border-b border-white/10">
+//                                 <th className="py-3 pr-4">O‘qituvchi</th>
+//                                 <th className="py-3 pr-4">Kurslari</th>
+//                                 <th className="py-3 pr-4">Talabalar</th>
+//                                 <th className="py-3 pr-4">Reyting</th>
+//                                 <th className="py-3 pr-4">Qo‘shilgan</th>
+//                                 <th className="py-3 pr-4">Status</th>
+//                                 <th className="py-3">Amallar</th>
+//                             </tr>
+//                         </thead>
+//                         <tbody>
+//                             {rows.map((r, i) => (
+//                                 <tr key={r.email} className={`text-sm ${i !== rows.length - 1 ? "border-b border-white/5" : ""}`}>
+//                                     <td className="py-3 pr-4">
+//                                         <div className="text-white">{r.name}</div>
+//                                         <div className="text-slate-400 text-xs">{r.email}</div>
+//                                     </td>
+//                                     <td className="py-3 pr-4 text-sky-300">{r.course}</td>
+//                                     <td className="py-3 pr-4 text-cyan-300">{r.students}</td>
+//                                     <td className="py-3 pr-4"><span className="inline-flex items-center gap-1 text-amber-300"><FiStar /> {r.rating}</span></td>
+//                                     <td className="py-3 pr-4 text-slate-300">{r.joined}</td>
+//                                     <td className="py-3 pr-4"><Badge text={r.status} color="emerald" /></td>
+//                                     <td className="py-3"><RowActions /></td>
+//                                 </tr>
+//                             ))}
+//                         </tbody>
+//                     </table>
+//                 </div>
+//             </Card>
 
-            {/* Teacher → Students cards (preview bloklari) */}
-            <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-                <StudentMiniCard name="Sardor Nazarov" email="sardor@example.com" progress={12} status="Faol" />
-                <StudentMiniCard name="Malika Toshmatova" email="malika@example.com" progress={45} status="Faol" />
-                <StudentMiniCard name="Guzal Mirzayeva" email="guzal@example.com" progress={91} status="Faol" />
-            </div>
-        </>
-    );
-}
+//             {/* Teacher → Students cards (preview bloklari) */}
+//             <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+//                 <StudentMiniCard name="Sardor Nazarov" email="sardor@example.com" progress={12} status="Faol" />
+//                 <StudentMiniCard name="Malika Toshmatova" email="malika@example.com" progress={45} status="Faol" />
+//                 <StudentMiniCard name="Guzal Mirzayeva" email="guzal@example.com" progress={91} status="Faol" />
+//             </div>
+//         </>
+//     );
+// }
 
 /* ---------------------- Students ---------------------- */
 function StudentsView() {
@@ -472,142 +472,179 @@ function Bg() {
 
 
 function CreateCourseModal({ onCreate }) {
-  const [open, setOpen] = useState(false);
-  const [createCourse, { isLoading }] = useCreateCourseMutation();
-  const [err, setErr] = useState(null);
-
-  const [form, setForm] = useState({
-    name: "",
-    teacher: "",
-    description: "",
-    category: "",
-    level: "",
-    duration: "",
-    price: "",
-    image: "",
-    lessons: "",   // ✅ yangi
-    views: 0,      // ✅ yangi
-  });
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setForm((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setErr(null);
-
-    const required = ["name", "teacher", "description", "category", "level", "duration", "price"];
-    for (const k of required) {
-      if (!String(form[k] ?? "").trim()) {
-        setErr(`${k} majburiy`);
+    const [open, setOpen] = useState(false);
+    const [createCourse, { isLoading }] = useCreateCourseMutation();
+    const [err, setErr] = useState(null);
+  
+    const [form, setForm] = useState({
+      name: "",
+      teacher: "",
+      description: "",
+      category: "",
+      level: "",
+      duration: "",
+      price: "",
+      lessons: "",
+      views: 0,
+    });
+  
+    // ✅ Yangi: rasm fayli (bitta)
+    const [imageFile, setImageFile] = useState(null);
+  
+    const handleChange = (e) => {
+      const { name, value } = e.target;
+      setForm((prev) => ({ ...prev, [name]: value }));
+    };
+  
+    const handlePickFile = (e) => {
+      const f = e.target.files?.[0] || null;
+      // ixtiyoriy filtrlash
+      if (f && !f.type.startsWith("image/")) {
+        setErr("Faqat rasm tanlang");
         return;
       }
-    }
-
-    const payload = {
-      ...form,
-      name: form.name.trim(),
-      teacher: form.teacher.trim(),
-      description: form.description.trim(),
-      category: form.category.trim(),
-      level: form.level.trim(),
-      duration: form.duration.trim(),
-      price: Number(form.price) || 0,
-      image: form.image?.trim() || "",
-      lessons: parseInt(form.lessons, 10) || 0,
-      views: parseInt(form.views, 10) || 0,
+      setErr(null);
+      setImageFile(f);
     };
-
-    try {
-      const res = await createCourse(payload).unwrap();
-      onCreate?.(res);
-      setOpen(false);
-      setForm({
-        name: "", teacher: "", description: "", category: "",
-        level: "", duration: "", price: "", image: "",
-        lessons: "", views: 0,
-      });
-    } catch (e) {
-      const detail = e?.data?.detail;
-      let message = "Kurs yaratishda xatolik";
-      if (Array.isArray(detail)) message = detail.map(d => d?.msg || "").filter(Boolean).join(", ");
-      else if (typeof detail === "string") message = detail;
-      else if (e?.error) message = e.error;
-      else if (e?.message) message = e.message;
-      setErr(message);
-      console.log("Created course object:", message);
-    }
-  };
-
-  return (
-    <div>
-      {/* Header + Open modal */}
-      <div className="flex justify-between items-center mb-6">
-        <h1 className="text-2xl font-semibold text-white">
-          <span className="text-cyan-400">&lt;</span>Admin Console<span className="text-fuchsia-400">/&gt;</span>
-        </h1>
-        <button onClick={() => setOpen(true)} className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-sm shadow">
-          + createCourse()
-        </button>
-      </div>
-
-      {open && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
-          <div className="bg-slate-900 text-white rounded-xl w-full max-w-lg p-6 shadow-xl relative">
-            <button onClick={() => setOpen(false)} className="absolute top-3 right-3 text-slate-400 hover:text-white">✕</button>
-            <h2 className="text-lg font-bold mb-4">Yangi Kurs Yaratish</h2>
-
-            <form className="space-y-4" onSubmit={handleSubmit}>
-              <div className="grid grid-cols-2 gap-4">
-                <input name="name" value={form.name} onChange={handleChange} type="text" placeholder="Masalan: React va TypeScript" className="px-3 py-2 rounded-md bg-slate-800 border border-slate-700 focus:outline-none focus:ring-1 focus:ring-indigo-500" required/>
-                <input name="teacher" value={form.teacher} onChange={handleChange} type="text" placeholder="O'qituvchi ismi" className="px-3 py-2 rounded-md bg-slate-800 border border-slate-700 focus:outline-none focus:ring-1 focus:ring-indigo-500" required/>
-              </div>
-
-              <textarea name="description" value={form.description} onChange={handleChange} placeholder="Kurs haqida..." rows="3" className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 focus:outline-none focus:ring-1 focus:ring-indigo-500" required/>
-
-              <div className="grid grid-cols-3 gap-4">
-                <select name="category" value={form.category} onChange={handleChange} className="px-3 py-2 rounded-md bg-slate-800 border border-slate-700 focus:outline-none focus:ring-1 focus:ring-indigo-500" required>
-                  <option value="">Kategoriya</option>
-                  <option value="Dasturlash">Dasturlash</option>
-                  <option value="Dizayn">Dizayn</option>
-                  <option value="Kiberxavfsizlik">Kiberxavfsizlik</option>
-                  <option value="Marketing">Marketing</option>
-                </select>
-                <select name="level" value={form.level} onChange={handleChange} className="px-3 py-2 rounded-md bg-slate-800 border border-slate-700 focus:outline-none focus:ring-1 focus:ring-indigo-500" required>
-                  <option value="">Daraja tanla</option>
-                  <option value="Boshlang'ich">Boshlang'ich</option>
-                  <option value="O'rta">O'rta</option>
-                  <option value="Yuqori">Yuqori</option>
-                </select>
-                <input name="duration" value={form.duration} onChange={handleChange} type="text" placeholder="Masalan: 8 hafta" className="px-3 py-2 rounded-md bg-slate-800 border border-slate-700 focus:outline-none focus:ring-1 focus:ring-indigo-500" required/>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4">
-                <input name="price" value={form.price} onChange={handleChange} type="number" placeholder="Masalan: 299000" className="px-3 py-2 rounded-md bg-slate-800 border border-slate-700 focus:outline-none focus:ring-1 focus:ring-indigo-500" required/>
-                <input name="image" value={form.image} onChange={handleChange} type="url" placeholder="https://youtu.be/ID yoki rasm URL" className="px-3 py-2 rounded-md bg-slate-800 border border-slate-700 focus:outline-none focus:ring-1 focus:ring-indigo-500"/>
-              </div>
-
-              {/* yangi satr: lessons & views */}
-              <div className="grid grid-cols-2 gap-4">
-                <input name="lessons" value={form.lessons} onChange={handleChange} type="number" min="0" placeholder="Darslar soni (mas: 12)" className="px-3 py-2 rounded-md bg-slate-800 border border-slate-700 focus:outline-none focus:ring-1 focus:ring-indigo-500"/>
-                <input name="views" value={form.views} onChange={handleChange} type="number" min="0" placeholder="Ko‘rishlar (0)" className="px-3 py-2 rounded-md bg-slate-800 border border-slate-700 focus:outline-none focus:ring-1 focus:ring-indigo-500"/>
-              </div>
-
-              {err && <p className="text-red-400 text-sm">{err}</p>}
-
-              <div className="flex justify-end gap-3 pt-2">
-                <button type="button" onClick={() => setOpen(false)} className="px-4 py-2 rounded-lg bg-slate-700 hover:bg-slate-600">Cancel</button>
-                <button type="submit" disabled={isLoading} className="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white disabled:opacity-50">
-                  ⚡ {isLoading ? "Yaratilmoqda..." : "Create Course"}
-                </button>
-              </div>
-            </form>
-          </div>
+  
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      setErr(null);
+  
+      const required = ["name", "teacher", "description", "category", "level", "duration", "price"];
+      for (const k of required) {
+        if (!String(form[k] ?? "").trim()) {
+          setErr(`${k} majburiy`);
+          return;
+        }
+      }
+      if (!imageFile) {
+        setErr("Rasm tanlash majburiy");
+        return;
+      }
+  
+      // ✅ FormData jo'natamiz (backend UploadFile qabul qiladi)
+      const fd = new FormData();
+      fd.append("name", form.name.trim());
+      fd.append("teacher", form.teacher.trim());
+      fd.append("description", form.description.trim());
+      fd.append("category", form.category.trim());
+      fd.append("level", form.level.trim());
+      fd.append("duration", form.duration.trim());
+      fd.append("price", String(Number(form.price) || 0));
+      fd.append("lessons", String(parseInt(form.lessons, 10) || 0));
+      fd.append("views", String(parseInt(form.views, 10) || 0));
+  
+      // ⚠️ MUHIM: headerda Content-Type qo‘ymaymiz — brauzer o‘zi qo‘yadi
+      // Backend nomi qanday bo‘lsa shunga moslang:
+      // Agar backend 'image' deb kutsa:
+      fd.append("image", imageFile);
+      // Agar backend 'images' (array) kutsa, xohlasang shu tarzda ham jo'natish mumkin:
+      // fd.append("images", imageFile);
+  
+      try {
+        const res = await createCourse(fd).unwrap();
+        onCreate?.(res);
+        setOpen(false);
+        setForm({
+          name: "", teacher: "", description: "", category: "",
+          level: "", duration: "", price: "", lessons: "", views: 0,
+        });
+        setImageFile(null);
+      } catch (e) {
+        const detail = e?.data?.detail;
+        let message = "Kurs yaratishda xatolik";
+        if (Array.isArray(detail)) message = detail.map(d => d?.msg || "").filter(Boolean).join(", ");
+        else if (typeof detail === "string") message = detail;
+        else if (e?.error) message = e.error;
+        else if (e?.message) message = e.message;
+        setErr(message);
+        console.log("create course error:", message);
+      }
+    };
+  
+    return (
+      <div>
+        {/* Header + Open modal */}
+        <div className="flex justify-between items-center mb-6">
+          <h1 className="text-2xl font-semibold text-white">
+            <span className="text-cyan-400">&lt;</span>Admin Console<span className="text-fuchsia-400">/&gt;</span>
+          </h1>
+          <button onClick={() => setOpen(true)} className="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-sm shadow">
+            + createCourse()
+          </button>
         </div>
-      )}
-    </div>
-  );
-}
-
+  
+        {open && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+            <div className="bg-slate-900 text-white rounded-xl w-full max-w-lg p-6 shadow-xl relative">
+              <button onClick={() => setOpen(false)} className="absolute top-3 right-3 text-slate-400 hover:text-white">✕</button>
+              <h2 className="text-lg font-bold mb-4">Yangi Kurs Yaratish</h2>
+  
+              <form className="space-y-4" onSubmit={handleSubmit}>
+                <div className="grid grid-cols-2 gap-4">
+                  <input name="name" value={form.name} onChange={handleChange} type="text" placeholder="Masalan: React va TypeScript" className="px-3 py-2 rounded-md bg-slate-800 border border-slate-700 focus:outline-none focus:ring-1 focus:ring-indigo-500" required/>
+                  <input name="teacher" value={form.teacher} onChange={handleChange} type="text" placeholder="O'qituvchi ismi" className="px-3 py-2 rounded-md bg-slate-800 border border-slate-700 focus:outline-none focus:ring-1 focus:ring-indigo-500" required/>
+                </div>
+  
+                <textarea name="description" value={form.description} onChange={handleChange} placeholder="Kurs haqida..." rows="3" className="w-full px-3 py-2 rounded-md bg-slate-800 border border-slate-700 focus:outline-none focus:ring-1 focus:ring-indigo-500" required/>
+  
+                <div className="grid grid-cols-3 gap-4">
+                  <select name="category" value={form.category} onChange={handleChange} className="px-3 py-2 rounded-md bg-slate-800 border border-slate-700 focus:outline-none focus:ring-1 focus:ring-indigo-500" required>
+                    <option value="">Kategoriya</option>
+                    <option value="Dasturlash">Dasturlash</option>
+                    <option value="Dizayn">Dizayn</option>
+                    <option value="Kiberxavfsizlik">Kiberxavfsizlik</option>
+                    <option value="Marketing">Marketing</option>
+                  </select>
+                  <select name="level" value={form.level} onChange={handleChange} className="px-3 py-2 rounded-md bg-slate-800 border border-slate-700 focus:outline-none focus:ring-1 focus:ring-indigo-500" required>
+                    <option value="">Daraja tanla</option>
+                    <option value="Boshlang'ich">Boshlang'ich</option>
+                    <option value="O'rta">O'rta</option>
+                    <option value="Yuqori">Yuqori</option>
+                  </select>
+                  <input name="duration" value={form.duration} onChange={handleChange} type="text" placeholder="Masalan: 8 hafta" className="px-3 py-2 rounded-md bg-slate-800 border border-slate-700 focus:outline-none focus:ring-1 focus:ring-indigo-500" required/>
+                </div>
+  
+                <div className="grid grid-cols-2 gap-4">
+                  <input name="price" value={form.price} onChange={handleChange} type="number" placeholder="Masalan: 299000" className="px-3 py-2 rounded-md bg-slate-800 border border-slate-700 focus:outline-none focus:ring-1 focus:ring-indigo-500" required/>
+  
+                  {/* ❌ URL maydoni o'rniga ✅ Fayl tanlash */}
+                  <div>
+                    <label className="block text-slate-300 mb-1">Kurs rasmi (jpg/png)</label>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handlePickFile}
+                      className="block w-full text-slate-200 file:mr-3 file:rounded-lg file:bg-indigo-600 file:px-4 file:py-2 file:text-white file:border-0 file:hover:bg-indigo-500 file:cursor-pointer"
+                      required
+                    />
+                    {imageFile && (
+                      <p className="text-xs text-slate-400 mt-1 truncate">
+                        Tanlangan: {imageFile.name}
+                      </p>
+                    )}
+                  </div>
+                </div>
+  
+                <div className="grid grid-cols-2 gap-4">
+                  <input name="lessons" value={form.lessons} onChange={handleChange} type="number" min="0" placeholder="Darslar soni (mas: 12)" className="px-3 py-2 rounded-md bg-slate-800 border border-slate-700 focus:outline-none focus:ring-1 focus:ring-indigo-500"/>
+                  <input name="views" value={form.views} onChange={handleChange} type="number" min="0" placeholder="Ko‘rishlar (0)" className="px-3 py-2 rounded-md bg-slate-800 border border-slate-700 focus:outline-none focus:ring-1 focus:ring-indigo-500"/>
+                </div>
+  
+                {err && <p className="text-red-400 text-sm">{err}</p>}
+  
+                <div className="flex justify-end gap-3 pt-2">
+                  <button type="button" onClick={() => setOpen(false)} className="px-4 py-2 rounded-lg bg-slate-700 hover:bg-slate-600">Cancel</button>
+                  <button type="submit" disabled={isLoading} className="px-4 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white disabled:opacity-50">
+                    ⚡ {isLoading ? "Yaratilmoqda..." : "Create Course"}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
+  
